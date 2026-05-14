@@ -1,0 +1,19 @@
+# Environments / IDE
+.venv/
+.idea/
+.claude/
+__pycache__/
+*.pyc
+
+# Unrelated Lakers assignment (not part of the AP Stats workload project)
+main.py
+nba_simple.py
+soccer_prediction.py
+lakers.csv
+database.sqlite
+plot_*.png
+simple_*.png
+
+# Stray temp log
+C:Users*
+*.log
