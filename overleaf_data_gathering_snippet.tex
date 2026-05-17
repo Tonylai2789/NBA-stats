@@ -1,0 +1,33 @@
+\section{Data Gathering}
+
+The data for this project came from NBA player-game records for the 2021--22, 2022--23, and 2023--24 regular seasons. The database used for the original query was Wyatt Walsh's Basketball Dataset on Kaggle, and the analysis files in this repository use cached player-game logs so the results can be reproduced without repeatedly downloading data.
+
+To keep the study focused on regular rotation players, a player-season was included only if the player averaged at least 20.0 minutes per game and appeared in at least 60 games that season. For each qualifying player-season, I kept games in which the player actually played and recorded the game date, minutes played, and Game Score. Game Score was used as the response variable because it summarizes a player's box-score performance in one number.
+
+The explanatory variable was recent workload. For each player-game, I summed the minutes that same player played in his previous five games during the same season. The first five games of each player-season were removed because they did not yet have five previous games available. This left 34,831 usable player-game observations from 290 unique players.
+
+\begin{table}[htbp]
+\centering
+\caption{Sample of raw player-game records used to build the workload data set.}
+\label{tab:raw-data-sample}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrr}
+\hline
+Player & Season & Date & MP & Prev. 5 MP & Game Score \\
+\hline
+Devin Booker & 2022 & 2021-11-02 & 33.8 & 163.6 & 6.6 \\
+Jalen Brunson & 2022 & 2021-10-31 & 27.1 & 126.2 & 3.9 \\
+Stephen Curry & 2022 & 2021-10-30 & 27.2 & 182.0 & 16.6 \\
+Luka Doncic & 2022 & 2021-10-31 & 35.2 & 169.3 & 17.6 \\
+Anthony Edwards & 2022 & 2021-11-01 & 36.7 & 176.0 & 16.1 \\
+Tyrese Haliburton & 2022 & 2021-10-31 & 33.4 & 159.8 & 12.0 \\
+Nikola Jokic & 2022 & 2021-10-30 & 36.7 & 143.5 & 20.7 \\
+Jayson Tatum & 2022 & 2021-10-30 & 45.8 & 189.0 & 12.7 \\
+Jimmy Butler & 2023 & 2022-10-27 & 37.1 & 173.3 & 32.1 \\
+Shai Gilgeous-Alexander & 2023 & 2022-11-01 & 32.9 & 182.8 & 29.8 \\
+Kevin Durant & 2024 & 2023-11-04 & 36.1 & 179.5 & 21.7 \\
+LeBron James & 2024 & 2023-11-04 & 35.2 & 178.3 & 22.5 \\
+\hline
+\end{tabular}
+}
+\end{table}

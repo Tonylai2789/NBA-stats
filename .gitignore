@@ -1,5 +1,7 @@
 # Environments / IDE
 .venv/
+.python_deps/
+.matplotlib_cache/
 .idea/
 .claude/
 __pycache__/
